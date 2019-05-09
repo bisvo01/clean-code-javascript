@@ -15,6 +15,12 @@
 11. [Comments](#comments)
 12. [Translation](#translation)
 
+## Corvus preface
+The principles outlined below are generally valid for any version in JavaScript.
+Examples below are written in ES6, but we are still using ES5 (due to need for IE support and the way our build is set up), so apply them intelligently.
+
+Some rules are completely based on ES6 features, those are explicitly marked as not applicable.
+
 ## Introduction
 
 ![Humorous image of software quality estimation as a count of how many expletives
@@ -202,6 +208,7 @@ function paintCar(car) {
 **[⬆ back to top](#table-of-contents)**
 
 ### Use default arguments instead of short circuiting or conditionals
+(Corvus: Not applicable) - ES6
 
 Default arguments are often cleaner than short circuiting. Be aware that if you
 use them, your function will only provide default values for `undefined`
@@ -505,7 +512,8 @@ function showEmployeeList(employees) {
 
 **[⬆ back to top](#table-of-contents)**
 
-### Set default objects with Object.assign
+### Set default objects with ~~Object.assign~~ angular.extend
+(Corvus: Object.assign not supported in IE)
 
 **Bad:**
 
@@ -539,7 +547,7 @@ const menuConfig = {
 };
 
 function createMenu(config) {
-  config = Object.assign(
+  config = angular.extend(
     {
       title: "Foo",
       body: "Bar",
@@ -638,6 +646,7 @@ console.log(newName); // ['Ryan', 'McDermott'];
 **[⬆ back to top](#table-of-contents)**
 
 ### Avoid Side Effects (part 2)
+(Corvus: Not applicable) - ES6
 
 In JavaScript, primitives are passed by value and objects/arrays are passed by
 reference. In the case of objects and arrays, if your function makes a change
@@ -1135,6 +1144,7 @@ console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe
 ## **Classes**
 
 ### Prefer ES2015/ES6 classes over ES5 plain functions
+(Corvus: Not applicable) - ES6
 
 It's very difficult to get readable class inheritance, construction, and method
 definitions for classical ES5 classes. If you need inheritance (and be aware
@@ -1945,6 +1955,7 @@ get("https://en.wikipedia.org/wiki/Robert_Cecil_Martin")
 **[⬆ back to top](#table-of-contents)**
 
 ### Async/Await are even cleaner than Promises
+(Corvus: Not applicable) - ES6
 
 Promises are a very clean alternative to callbacks, but ES2017/ES8 brings async and await
 which offer an even cleaner solution. All you need is a function that is prefixed
